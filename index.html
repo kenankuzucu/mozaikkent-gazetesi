@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="tr" data-tema="gazete">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MOZAİKKENT GAZETESİ — Kentin nabzı</title>
+<meta name="description" content="MOZAİKKENT GAZETESİ: kent gündemi, ekonomi, spor, kültür-sanat, teknoloji ve yaşam haberleri. İmtiyaz Sahibi: Yaşar Elma.">
+<meta name="theme-color" content="#8c1c2b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111'/%3E%3Crect x='4' y='4' width='10' height='10' fill='%23e11d48'/%3E%3Crect x='18' y='4' width='10' height='10' fill='%230ea5e9'/%3E%3Crect x='4' y='18' width='10' height='10' fill='%2316a34a'/%3E%3Crect x='18' y='18' width='10' height='10' fill='%23f97316'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/stil.css">
+</head>
+<body data-yazi="2">
+
+<!-- ÜST ŞERİT: tarih + piyasa + ayarlar -->
+<div class="ustSerit">
+  <div class="sarici">
+    <span id="tarihYazi">—</span>
+    <div class="piyasa" id="piyasaSerit"></div>
+    <div class="ustDugmeler">
+      <button class="miniDugme canli" id="canliDugme" title="Canlı televizyon ve radyo yayınları"><span class="noktaCanli"></span><span class="etiketYazi">CANLI YAYIN</span></button>
+      <select class="temaSec" id="temaSec" title="Renk teması"></select>
+      <div class="yaziKademe" title="Yazı boyutu">
+        <button data-yazi="1">A-</button><button data-yazi="2">A</button><button data-yazi="3">A+</button>
+        <button data-yazi="4">A++</button><button data-yazi="5">A+++</button>
+      </div>
+      <button class="miniDugme" id="kaydetDugme" title="Kaydettiğim haberler">🔖 <span class="etiketYazi">Kaydettiklerim</span> (<span id="kayitSayi">0</span>)</button>
+    </div>
+  </div>
+</div>
+
+<!-- MASTHEAD -->
+<header class="ust">
+  <div class="sarici">
+    <div class="logo">
+      <svg class="mozaikLogo" viewBox="0 0 100 100" aria-hidden="true">
+        <rect x="2" y="2" width="30" height="30" rx="4" fill="#e11d48"/>
+        <rect x="35" y="2" width="30" height="30" rx="4" fill="#0ea5e9"/>
+        <rect x="68" y="2" width="30" height="30" rx="4" fill="#16a34a"/>
+        <rect x="2" y="35" width="30" height="30" rx="4" fill="#f97316"/>
+        <rect x="35" y="35" width="30" height="30" rx="4" fill="#a855f7"/>
+        <rect x="68" y="35" width="30" height="30" rx="4" fill="#06b6d4"/>
+        <rect x="2" y="68" width="30" height="30" rx="4" fill="#ec4899"/>
+        <rect x="35" y="68" width="30" height="30" rx="4" fill="#d97706"/>
+        <rect x="68" y="68" width="30" height="30" rx="4" fill="#65a30d"/>
+      </svg>
+      <div>
+        <h1 class="gazeteAd">MOZAİKKENT GAZETESİ</h1>
+        <div class="gazeteSlogan">Kentin nabzı — çok renkli, çok sesli</div>
+        <div class="gazeteKunye">İmtiyaz Sahibi: <b>YAŞAR ELMA</b> · Bağımsız kent gazetesi · 2019'dan beri</div>
+      </div>
+    </div>
+    <div class="ustSag">
+      <div class="havaKutu" id="havaKutu" title="Mozaikkent hava durumu"></div>
+      <form class="araKutu" id="araForm" onsubmit="return false;">
+        <input id="araGirdi" type="search" placeholder="Haber ara…" aria-label="Haber ara">
+        <button type="submit" id="araDugme">Ara</button>
+      </form>
+    </div>
+  </div>
+</header>
+
+<!-- SON DAKİKA -->
+<div class="sonDakika">
+  <span class="etiket">SON DAKİKA</span>
+  <div class="kayanSarici"><div class="kayanYazi" id="kayanYazi"></div></div>
+</div>
+
+<!-- MENÜ -->
+<nav class="menu" id="menu">
+  <div class="menusatir">
+    <button class="hamburger" id="hamburger" aria-label="Menü">☰ BÖLÜMLER</button>
+    <button class="miniDugme" id="canliDugme2">🔴 CANLI</button>
+  </div>
+  <div class="sarici" id="menuSarici"></div>
+</nav>
+
+<main><div class="sarici" id="icerik"></div></main>
+
+<footer>
+  <div class="sarici">
+    <div class="fAlt">
+      <div>
+        <h5>MOZAİKKENT GAZETESİ</h5>
+        <p>Kentin nabzını sokaktan, meclis salonundan ve mahalle kahvesinden takip eden bağımsız kent gazetesi.</p>
+        <p><b>İmtiyaz Sahibi:</b> Yaşar Elma</p>
+        <p><b>Yazı İşleri:</b> Yaşar Elma</p>
+      </div>
+      <div>
+        <h5>BÖLÜMLER</h5>
+        <ul id="fBolumler"></ul>
+      </div>
+      <div>
+        <h5>GAZETE</h5>
+        <ul>
+          <li><a href="#/kunye">Künye ve Yayın İlkeleri</a></li>
+          <li><a href="#/galeri">Görsel Vitrin</a></li>
+          <li><a href="#/arsiv">Haber Arşivi</a></li>
+          <li><a href="#/kaydedilenler">Kaydettiklerim</a></li>
+          <li><a href="#/iletisim">İletişim ve Haber İhbarı</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>İLETİŞİM</h5>
+        <ul>
+          <li>Mozaikkent / Zambak Mah.</li>
+          <li>Basın Caddesi No: 19</li>
+          <li>Tel: 0342 000 00 00</li>
+          <li>haber@mozaikkentgazetesi.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="fDip">
+      <span>© 2026 MOZAİKKENT GAZETESİ · Tüm hakları saklıdır · İmtiyaz Sahibi: Yaşar Elma</span>
+      <span>Haber metinleri örnek/şablon içeriktir; yayına almadan önce kendi haberlerinizle değiştirin.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- CANLI YAYIN PANELİ -->
+<div class="perde" id="perde">
+  <div class="panel">
+    <div class="panelBas">
+      <h3>🔴 MOZAİKKENT TV &amp; RADYO — Canlı Yayın</h3>
+      <button class="kapat" id="perdeKapat" aria-label="Kapat">✕ Kapat</button>
+    </div>
+    <div class="sekmeler">
+      <button class="sekme aktif" data-sekme="tv">📺 Televizyon</button>
+      <button class="sekme" data-sekme="radyo">📻 Radyo</button>
+    </div>
+    <div id="tvAlan">
+      <div class="oynatici"><video id="tvVideo" controls playsinline poster=""></video></div>
+      <div class="kanalListe" id="tvListe"></div>
+      <div class="durum" id="tvDurum">Bir kanal seçin. Canlı yayın için internet bağlantısı gerekir.</div>
+    </div>
+    <div id="radyoAlan" style="display:none">
+      <div class="radyoKutu">
+        <div class="dalga" id="dalga"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div style="flex:1">
+          <div style="font-family:Georgia,serif;font-size:calc(20px * var(--yaz))" id="radyoAd">Mozaikkent Radyo</div>
+          <div style="color:var(--yazi2);font-size:calc(13.5px * var(--yaz))" id="radyoDurum">Kanal seçilmedi</div>
+        </div>
+        <button class="miniDugme" id="radyoDurdur">⏹ Durdur</button>
+      </div>
+      <div class="kanalListe" id="radyoListe"></div>
+    </div>
+  </div>
+</div>
+
+<button class="yukariDugme" id="yukariDugme" aria-label="Yukarı çık">▲</button>
+
+<script src="assets/js/veri.js"></script>
+<script src="assets/js/uygulama.js"></script>
+</body>
+</html>

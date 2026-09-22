@@ -1,0 +1,19 @@
+HABER FOTOĞRAFLARI KLASÖRÜ
+==========================
+
+Haber fotoğraflarınızı bu klasöre kopyalayın.
+Örnek dosya adları (Türkçe harf ve boşluk kullanmayın):
+
+    zambak-yol.jpg
+    meclis-butcesi.jpg
+    pazar-fiyatlari.jpg
+
+Sonra assets/js/veri.js dosyasındaki ilgili haber kaydına şu satırı ekleyin:
+
+    foto: "assets/img/zambak-yol.jpg",
+
+Fotoğraf eklenmeyen haberlerde bölüm rengine göre çizilen mozaik kapak gösterilir.
+Fotoğraf eklenince kapak (kart, manşet, haber sayfası, görsel vitrin) fotoğrafa döner.
+
+Öneri: yatay (yatık) fotoğraflar kullanın. Genişlik 1200 piksel, dosya boyutu 300 KB altı
+sayfayı hızlı tutar.
