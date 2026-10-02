@@ -6,6 +6,8 @@ Bağımsız kent gazetesi · 2019'dan beri · İmtiyaz Sahibi: **YAŞAR ELMA**
 Tek klasörde çalışan, internetsiz de açılan, cPanel'e yüklemeye hazır **kent gazetesi sitesi**.
 26 haber, 4 köşe yazısı, 12 bölüm, 8 renk teması, canlı TV + radyo, döviz ve hava durumu şeridi.
 
+🌐 **Canlı site:** <https://www.mozaikkent.com/>
+
 ![MOZAİKKENT GAZETESİ — kapak](ekranlar/00-kapak.png)
 
 ---
